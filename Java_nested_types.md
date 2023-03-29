@@ -33,7 +33,7 @@ class Enclosing {
 ### static nested classes
 -associated with the outer class
 
--similar to static class members, cannot refer directly to instance variables or methods defined in the outer class: it can only use them through an object reference
+-similar to static class members, cannot refer directly to instance variables o methods defined in the outer class: it can only use them through an object reference
 
 -static nested classes behave like any other top-level class
 
