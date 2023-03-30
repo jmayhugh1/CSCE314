@@ -1,4 +1,6 @@
 
+//Joshua Mayhugh
+//431004527
 import java.util.ArrayList;
 import java.util.Comparator;
 
@@ -81,6 +83,10 @@ public Vehicle(int speed, int direction, String owner){
     public void changeSpeed(int speed){
         this.speed = speed;
     }
+
+    public void stop(){
+        speed = 0;
+    }
     //Section 2.8, Exercise 2.17
     //turn method one that takes a number of degress and one that takes either of the constants Vehicle.TURN_LEFT or Vehicle.TURN_RIGHT
     public void turn(int degrees){
@@ -158,6 +164,7 @@ class PassengerVehicle  extends Vehicle implements Comparable<PassengerVehicle>{
     }
     //main method to test
     public static void main(String[] args){
+        System.out.println("--------------Testing the sort-----------------");
         PassengerVehicle car1 = new PassengerVehicle(4, "Craig");
         car1.changeSpeed(90);
         car1.setDirection(0);
@@ -199,6 +206,12 @@ class PassengerVehicle  extends Vehicle implements Comparable<PassengerVehicle>{
         for(PassengerVehicle car : cars){
             System.out.println(car);
         }
+        System.out.println("--------------Testing the availabe seats method-----------------");
+        System.out.println(car1.seatsAvailable());
+        System.out.println(car2.seatsAvailable());
+        System.out.println(car3.seatsAvailable());
+        System.out.println(car4.seatsAvailable());
+        System.out.println(car5.seatsAvailable());
 
     }
 
@@ -270,7 +283,25 @@ class VehicleTest
         System.out.println(car5);
         car6.turn(Vehicle.TURN_RIGHT);
         System.out.println(car6);
+        System.out.println("-------------Testing the change speed and stop method method-------------");
+        car1.changeSpeed(100);
+        System.out.println(car1);
+        car2.changeSpeed(200);
+        System.out.println(car2);
+        car3.changeSpeed(300);
+        System.out.println(car3);
+        car4.changeSpeed(400);
+        System.out.println(car4);
+        car5.changeSpeed(500);
+        System.out.println(car5);
+        car6.changeSpeed(600);
+        System.out.println(car6);
+        car1.stop();
+        System.out.println(car1);
+        car2.stop();
+        System.out.println(car2);
 
+    
 
 
 

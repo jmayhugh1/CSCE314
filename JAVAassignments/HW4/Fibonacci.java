@@ -1,4 +1,5 @@
-
+//Joshua Mayhugh
+//431004527
 import static java.lang.System.out;
 import java.util.Scanner;
 class SubsetOutputFib {
