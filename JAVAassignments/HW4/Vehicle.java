@@ -64,6 +64,10 @@ public Vehicle(int speed, int direction, String owner){
     public static int getNextID(){
         return nextID;
     }
+    //add a static method that returns the highest vehicle ID number that has been assigned so far
+    public static int getHighestVehicleID(){
+        return nextID - 1;
+    }
 //mutator methods for the fields
     
     public void setDirection(int direction){
@@ -98,10 +102,10 @@ public Vehicle(int speed, int direction, String owner){
     }
   public void turn(String direction){
         if(direction.equals(TURN_LEFT)){
-            this.direction -= 90;
+            turn(-90);
         }
         else if(direction.equals(TURN_RIGHT)){
-            this.direction += 90;
+            turn(90);
         }
         //if the direction is greater than 360 then subtract 360
         if(this.direction > 360){
@@ -130,7 +134,7 @@ class PassengerVehicle  extends Vehicle implements Comparable<PassengerVehicle>{
             passengers++;
         }
         else{
-            System.out.println("There are no more seats available.");
+            System.out.println("There arent seats available.");
         }
     }
     //add a method to remove a passenger
@@ -153,15 +157,32 @@ class PassengerVehicle  extends Vehicle implements Comparable<PassengerVehicle>{
     //compareto
     public int compareTo(PassengerVehicle other){
         if(this.seatsAvailable() > other.seatsAvailable()){
-            return -1;
+            return -1; //this object is less than the other object
         }
         else if(this.seatsAvailable() < other.seatsAvailable()){
-            return 1;
+            return 1; //this object is greater than the other object
         }
         else{
             return 0;
         }
     }
+    //add a method to sort the array of PassengerVehicle objects using the copmareTo method and passing in an arraylist of PassengerVehicle objects
+    public static void sort(ArrayList<PassengerVehicle> list){
+        for( int i =  0; i < list.size(); i++){
+            //inner loop
+
+            for(int j =  0; j  < list.size() - 1; j++)
+            {
+                if(list.get(j).compareTo(list.get(j  + 1)) == 1) //compare the two objects
+                {
+                    PassengerVehicle temp = list.get(j); //swap the two objects
+                      list.set(j, list.get(j +  1));
+                       list.set(j + 1, temp);
+                }
+            }
+        }
+    }
+
     //main method to test
     public static void main(String[] args){
         System.out.println("--------------Testing the sort-----------------");
@@ -202,7 +223,7 @@ class PassengerVehicle  extends Vehicle implements Comparable<PassengerVehicle>{
         cars.add(car3);
         cars.add(car4);
         cars.add(car5);
-        cars.sort(null);
+        PassengerVehicle.sort(cars);
         for(PassengerVehicle car : cars){
             System.out.println(car);
         }
@@ -269,21 +290,39 @@ class VehicleTest
         car10.changeSpeed(70);
         car10.setDirection(80);
         System.out.println(car10);
+        //testing static highest ID
+        
+        
+        System.out.println("-------------Testing the static highest ID method-------------");
+        System.out.println("the highest ID is: " + Vehicle.getHighestVehicleID());
+       // System.out.println(Vehicle.getHighestVehicleID());
         //test the turn method
         System.out.println("-------------Testing the turn method-------------");
+        System.out.println(car1);
+        
         car1.turn(90);
         System.out.println(car1);
+
+        System.out.println(car2);
         car2.turn(180);
         System.out.println(car2);
+
+        System.out.println(car3);
         car3.turn(270);
         System.out.println(car3);
+
+        System.out.println(car4);
         car4.turn(360);
         System.out.println(car4);
+
+        System.out.println(car5);
         car5.turn(Vehicle.TURN_LEFT);
         System.out.println(car5);
+
+        System.out.println(car6);
         car6.turn(Vehicle.TURN_RIGHT);
         System.out.println(car6);
-        System.out.println("-------------Testing the change speed and stop method method-------------");
+        System.out.println("-------------Testing the change speed and stop method -------------");
         car1.changeSpeed(100);
         System.out.println(car1);
         car2.changeSpeed(200);

@@ -2,6 +2,7 @@
 //431004527
 import static java.lang.System.out;
 import java.util.Scanner;
+
 class SubsetOutputFib {
 
 public static void main(String[] args) 
@@ -64,6 +65,7 @@ input.close();
 
 
 }
+
 }
 // Modify the ImprovedFibonacci application to store its sequence in an array. 
 // Do this by creating a new class to hold both the value and a boolean value that says whether the value is even, 
