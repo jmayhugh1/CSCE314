@@ -77,6 +77,7 @@ class ImprovedFibonacci{
     private boolean even;
     // constructor
     public ImprovedFibonacci(int value){
+        
         this.value = value;
         //if it is even then even is true
         if(value % 2 == 0){
