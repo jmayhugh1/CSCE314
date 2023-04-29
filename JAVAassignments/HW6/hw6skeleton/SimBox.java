@@ -3,8 +3,8 @@
    First, study how this class should work with the test code in SimMain.java
    carefully!
 
-   Student Name:
-   Student UIN:
+   Student Name: Joshua Mayhugh
+   Student UIN: 431004527
    Acknowledgements:
 */
 

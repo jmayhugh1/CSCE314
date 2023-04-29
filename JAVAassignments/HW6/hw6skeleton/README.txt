@@ -1,8 +1,8 @@
 
 /* Written by Hyunyoung Lee for CSCE 314 Students Homework 6 Problem 1
 
-   Student Name:
-   UIN:
+   Student Name: Joshua Mayhugh
+   UIN: 431004527
    Acknowledgements:
 */
 
@@ -107,7 +107,7 @@ From Bart to Homer: flooding the message queue...
 From Bart to Homer: flooding the message queue...
 From Bart to Homer: flooding the message queue...
 -reason for the difference in output
-Each member in the family has a different thread. These multiple threads can cause it to run in an unpredicatble order. This order is affected by 
+Each member in the family has a different thread. These multiple threads can cause it to run in an unpredictable order. This order is affected by 
 things out of my control like operating system scheduling. Once the first three messages are sent then the two threads for homer and bart are operating independently, causing homer's message to 
 have different placings within barts floods of text.
 
@@ -115,12 +115,13 @@ have different placings within barts floods of text.
 =====   Part 2   =====
 ======================
 
-The SimBoc class is meant to represent a messaging system between an sender and recpient. The class uses more than one thread at the same time and it is neccesary to synchronize the 
-different message queues because multiple threads might be able to manipulate the message queses at the same time and cause inconsistencies. If a thread is iterating through a message queue and another threads adds or removes elements from it, then the iteration will fail
-or it can produce inconsistent behavior. The message queues gave to be synchronized to ensure that the threads can work without causing problems with each other.
+The SimBox class is meant to represent a messaging system between an sender and recpient. The class uses more than one thread at the same time and it is neccesary to synchronize the 
+different message queues because multiple threads might be able to manipulate the message queues at the same time and cause inconsistencies. If a thread is iterating through a message queue and another threads adds or removes elements from it, then the iteration will fail
+or it can produce inconsistent behavior. The message queues gave to be synchronized to ensure that the threads can work without causing problems with each other. If they were not synchronized then the threads would not be able to work together and the program would not work as intended, ie he messages would
+display in the wrong order or the messages would not be sent at all.
 
- The implementation given doesnt even allow for the possibility of deadlock. The send() and retrieve methods rely on different objects to synchronize. The send() synchonizes with the messages object and retrieve requires the myMessages objecct. Moerover, the run() method syncs 
- the two objects in a nested manner which prevents other threads from accesing messages or myMessages while the iteration and message processing happens. The implementation threads can acess the messages object or the private myMessages object without blocking each other.
+The implementation given doesnt even allow for the possibility of deadlock. The send() and retrieve methods rely on different objects to synchronize. The send() synchonizes with the messages object and retrieve() requires the myMessages objecct. Moerover, the run() method syncs 
+the two objects in a nested manner which prevents other threads from accesing messages or myMessages while the iteration and message processing happens. The implementation threads can acess the messages object or the private myMessages object without blocking each other.
 
 
 
