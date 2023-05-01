@@ -81,12 +81,12 @@ do {
 
 there are 5 runtime data areas
 
-1. the $ {method area}$ contains the class information, code and constant pool
+1. the ${method area}$ contains the class information, code and constant pool
     - contains the class information, code and constant pool
     - one method area per JVM instance
     - the method area is shared by all threads
     - there is one thread access at a time
-2. the $ {heap}$ contains all the objects, when you create an array or object using new, object appears in the heap
+2. the ${heap}$ contains all the objects, when you create an array or object using new, object appears in the heap
     - contains all the objects, when you create an array or object using new, object appears in the heap
     - one heap per JVM instance
     - facilitates garbage collection
@@ -96,7 +96,7 @@ there are 5 runtime data areas
     Object reperesentation in the heap
     ![picture 2](../images/314c0755f52b9b7e1796b4ac05fca9b0085777c8f3c3b57a75924149c3f2792b.png)  
 
-3. the $ {stack}$ contains stackframes where activiation records are stored
+3. the ${stack}$ contains stackframes where activiation records are stored
     - Each thread has its own stack
     - contains frames: current thread's state
     - pushing and popping frames is done by the JVM
@@ -123,7 +123,7 @@ there are 5 runtime data areas
 
 
 
-4. the $ {pc register}$ collection of registers, one per thread each thread program counter is stored in the pc register, program counter is the address of the next instruction to be executed
-5. the $ {native method stack}$ support methods written in a different language
+4. the ${pc register}$ collection of registers, one per thread each thread program counter is stored in the pc register, program counter is the address of the next instruction to be executed
+5. the ${native method stack}$ support methods written in a different language
 
 
